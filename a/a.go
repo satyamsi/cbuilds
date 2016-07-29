@@ -1,8 +1,17 @@
-// +build linux,!darwin
+// +build linux 
+
 package a
 
+/*
+#include "a.h"
+*/
 import "C"
 
-func Somefunc() int {
-	return 0
+func Somefunc() (ret int) {
+
+        x := C.somefunc() 
+  
+        ret = int(x) + 1
+
+	return ret 
 }
